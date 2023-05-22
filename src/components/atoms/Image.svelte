@@ -25,10 +25,8 @@
 		&:hover {
 			filter: brightness(1.3);
 		}
-	}
 
-	@media (max-width: 500px) {
-		img {
+		@media (max-width: 500px) {
 			width: 100%;
 		}
 	}

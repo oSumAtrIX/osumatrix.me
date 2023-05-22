@@ -28,10 +28,8 @@ body {
 	height: 100vh;
 	margin: 0;
 	background: var(--bg-color);
-}
 
-@media (max-width: 500px) {
-	body {
+	@media (max-width: 500px) {
 		display: initial;
 		background-color: #151515;
 	}

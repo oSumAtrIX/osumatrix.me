@@ -32,11 +32,17 @@
 		flex-direction: column;
 		justify-content: space-evenly;
 	}
+
 	#card {
 		border-radius: 15px;
 		padding: 25px;
 		width: 1450px;
 		background: #131313eb;
+
+		@media (max-width: 500px) {
+			border-radius: 0;
+			width: initial;
+		}
 	}
 
 	#image {
@@ -59,13 +65,6 @@
 
 		#molecules {
 			flex-direction: column;
-		}
-	}
-
-	@media (max-width: 500px) {
-		#card {
-			border-radius: 0;
-			width: initial;
 		}
 	}
 </style>
