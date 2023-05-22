@@ -64,6 +64,7 @@
 
 	@media (max-width: 500px) {
 		#card {
+			border-radius: 0;
 			width: initial;
 		}
 	}

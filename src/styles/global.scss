@@ -22,6 +22,7 @@ canvas {
 }
 
 body {
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
@@ -29,9 +30,10 @@ body {
 	background: var(--bg-color);
 }
 
-@media (min-width: 500px) {
+@media (max-width: 500px) {
 	body {
-		display: flex;
+		display: initial;
+		background-color: #151515;
 	}
 }
 

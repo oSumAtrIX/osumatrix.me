@@ -8,6 +8,8 @@
 	let playClickSound: (() => void) | undefined;
 
 	onMount(() => {
+		if (window.innerWidth <= 500) return;
+
 		const audioCtx = new window.AudioContext();
 		const gainNode = audioCtx.createGain();
 		gainNode.gain.value = 1;
