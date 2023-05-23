@@ -49,7 +49,12 @@
 			<Social faIcon={faChessKnight} link="https://lichess.org/@/oSumAtrIX" anchor="chess" />
 		</li>
 		<li>
-			<Social faIcon={faEnvelope} link="mailto:mail@osumatrix.me" anchor="envelope" />
+			<Social
+				faIcon={faEnvelope}
+				link="mailto:mail@osumatrix.me"
+				anchor="mail"
+				overrideText="mail@osumatrix.me"
+			/>
 		</li>
 	</ul>
 </section>
