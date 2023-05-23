@@ -8,12 +8,12 @@
 		faTwitter,
 		faYoutube
 	} from '@fortawesome/free-brands-svg-icons';
-	import ParagraphHeader from '../atoms/ParagraphHeader.svelte';
+	import SectionHeader from '../atoms/SectionHeader.svelte';
 	import Social from '../atoms/Social.svelte';
 </script>
 
 <section>
-	<ParagraphHeader text="Socials" icon={faLink} />
+	<SectionHeader text="Socials" icon={faLink} />
 	<ul>
 		<Social
 			faIcon={faDiscord}

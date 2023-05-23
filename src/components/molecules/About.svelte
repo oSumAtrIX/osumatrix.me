@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
-	import ParagraphHeader from '../atoms/ParagraphHeader.svelte';
+	import SectionHeader from '../atoms/SectionHeader.svelte';
 </script>
 
 <section>
-	<ParagraphHeader text="About me" icon={faAddressCard} />
+	<SectionHeader text="About me" icon={faAddressCard} />
 	<p>
 		21-year-old hyper-enthusiastic full-time blockhead, who had the great idea to study computer
 		science at the <a target="_blank" href="https://uni-augsburg.de/">University of Augsburg</a>.
