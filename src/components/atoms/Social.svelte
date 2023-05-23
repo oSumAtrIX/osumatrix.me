@@ -8,12 +8,12 @@
 	export let overrideText: string | boolean = false;
 </script>
 
-<div id={anchor} class="social">
+<li id={anchor} class="social">
 	<div class="icon">
 		<Fa icon={faIcon} />
 	</div>
 	<a href={link}>{overrideText ? overrideText : 'osumatrix.me/#' + anchor}</a>
-</div>
+</li>
 
 <style lang="scss">
 	.social {
