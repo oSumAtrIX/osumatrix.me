@@ -26,4 +26,8 @@
 	a {
 		white-space: nowrap;
 	}
+
+	p {
+		text-align: justify;
+	}
 </style>
