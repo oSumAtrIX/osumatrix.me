@@ -7,3 +7,9 @@
 	<Fa icon={faUserAlt} />
 	<span>oSumAtrIX</span>
 </h1>
+
+<style>
+	span {
+		color: var(--highlight);
+	}
+</style>

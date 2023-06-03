@@ -15,6 +15,7 @@
 	h2 {
 		margin: 0;
 	}
+
 	span {
 		color: var(--highlight);
 	}
