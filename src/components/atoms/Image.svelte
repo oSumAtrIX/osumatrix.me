@@ -26,7 +26,7 @@
 			filter: brightness(1.3);
 		}
 
-		@media (max-width: 500px) {
+		@media (max-width: 505px) {
 			width: 100%;
 		}
 	}

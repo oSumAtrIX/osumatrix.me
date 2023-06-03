@@ -29,7 +29,7 @@ body {
 	margin: 0;
 	background: var(--bg-color);
 
-	@media (max-width: 500px) {
+	@media (max-width: 505px) {
 		display: initial;
 		background-color: #151515;
 	}
@@ -42,10 +42,24 @@ body {
 
 :root {
 	--white: #ccc;
+	--gray: #333;
 	--highlight: #ff0052;
 	--bg-color: #060606;
 	--main-font: 'Roboto', sans-serif;
 	--highlight-font: 'Roboto Flex', sans-serif;
+}
+
+::-webkit-scrollbar {
+	width: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+	background: none;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 1rem;
+	background: var(--gray);
 }
 
 @keyframes pulse {
