@@ -49,7 +49,7 @@
 <svelte:head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="og:title" content="osumatrix.me" />
+	<meta name="og:title" content="oSumAtrIX" />
 	<meta content="/osumatrix.webp" property="og:image" />
 	<meta property="og:description" content="My personal website" />
 	<meta name="twitter:image" itemprop="image" content="/osumatrix.webp" />
