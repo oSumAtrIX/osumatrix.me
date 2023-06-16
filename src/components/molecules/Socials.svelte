@@ -19,7 +19,7 @@
 			faIcon={faDiscord}
 			link="https://discord.com/users/737323631117598811"
 			anchor="discord"
-			overrideText="oSumAtrIX#5767"
+			overrideText="oSumAtrIX"
 		/>
 		<Social faIcon={faReddit} link="https://reddit.com/u/oSumAtrIX" anchor="reddit" />
 		<Social faIcon={faGithub} link="https://github.com/oSumAtrIX" anchor="github" />
