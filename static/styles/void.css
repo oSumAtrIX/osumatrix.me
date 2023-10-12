@@ -1,0 +1,50 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	font-family: monospace;
+	background: linear-gradient(0, #000000, #000000, #0E0E0EFF, #000000, #0E0E0EFF, #000000, #000000);
+	background-size: 800% 800%;
+	animation: AnimationName 15s ease infinite;
+	color: white;
+}
+
+video {
+	height: 100%;
+	position: absolute;
+}
+
+body, #welcome-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#shine {
+	height: 10%;
+	width: 40%;
+	background-color: #FFFFFF;
+	filter: blur(200px);
+	position: absolute;
+	top: 0;
+	transform: translate(0px, -100%);
+}
+
+#welcome-page {
+	cursor: help;
+	position: absolute;
+	background: #000;
+	height: 100%;
+	width: 100%;
+}
+
+@keyframes AnimationName {
+	0% {
+		background-position: 50% 0
+	}
+
+	100% {
+		background-position: 50% 100%
+	}
+}
