@@ -9,7 +9,6 @@
 	alt="oSumAtrIX"
 	on:mouseover={() => scale.set(1.2)}
 	on:mouseleave={() => scale.set(0)}
-	on:click={() => (location.href = '/upload')}
 />
 
 <style lang="scss">
