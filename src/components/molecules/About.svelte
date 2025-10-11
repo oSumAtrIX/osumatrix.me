@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
 	import SectionHeader from '../atoms/SectionHeader.svelte';
+
+	let birthday = new Date(2002, 2, 15);
+	let age = Math.floor((Date.now() - birthday.getTime()) / 3.15576e10);
 </script>
 
 <section>
 	<SectionHeader text="About me" icon={faAddressCard} />
 	<p>
-		22-year-old computer science student 
+		{age}-year-old computer science student 
 		at <a target="_blank" href="https://uni-augsburg.de/">University of Augsburg</a>.
 		<br />
 		My interests and expertise expand from graphics-, motion- and sound design in dedicated software
