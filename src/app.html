@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -9,9 +9,9 @@
 		%sveltekit.head%
 	</head>
 	<body>
-		<div>%sveltekit.body%</div>
-		<link id="vertexImport" rel="import" href="/cursor_trail_vertex.glsl" />
-		<link id="fragmentImport" rel="import" href="/cursor_trail_fragment.glsl" />
-		<script src="/cursor_trail.js"></script>
+		%sveltekit.body%
 	</body>
+	<link id="vertexImport" rel="import" href="/cursor_trail_vertex.glsl" />
+	<link id="fragmentImport" rel="import" href="/cursor_trail_fragment.glsl" />
+	<script src="/cursor_trail.js"></script>
 </html>
