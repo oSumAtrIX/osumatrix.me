@@ -17,7 +17,10 @@
 </a>
 
 <style>
-	a:hover {
-		color: var(--white);
+	a {
+		transition: all 0.1s ease-out;
+		&:hover {
+			color: var(--white);
+		}
 	}
 </style>

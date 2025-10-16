@@ -22,6 +22,38 @@
 
 	let birthday = new Date(2002, 2, 15);
 	let age = Math.floor((Date.now() - birthday.getTime()) / 3.15576e10);
+
+	// Magnetic logo variables
+	let magnetX = 0;
+	let magnetY = 0;
+	const MAGNET_THRESHOLD = 220; // px
+	const MAGNET_MAX = 14; // max translate in px
+
+	function handleMagnetMove(e: MouseEvent) {
+		const target = e.currentTarget as HTMLElement;
+		if (!target) return;
+		const rect = target.getBoundingClientRect();
+		const cx = rect.left + rect.width / 2;
+		const cy = rect.top + rect.height / 2;
+		const dx = e.clientX - cx;
+		const dy = e.clientY - cy;
+		const dist = Math.hypot(dx, dy);
+		if (dist < MAGNET_THRESHOLD) {
+			const strength = (1 - dist / MAGNET_THRESHOLD) * MAGNET_MAX;
+			const nx = dx / (dist || 1);
+			const ny = dy / (dist || 1);
+			magnetX = nx * strength;
+			magnetY = ny * strength;
+		} else {
+			magnetX = 0;
+			magnetY = 0;
+		}
+	}
+
+	function handleMagnetLeave() {
+		magnetX = 0;
+		magnetY = 0;
+	}
 </script>
 
 <main>
@@ -38,13 +70,11 @@
 		<div id="card">
 			<h1>oSumAtrIX</h1>
 			<p>
-				{age} years. CS at
-				<Link href="https://uni-augsburg.de/">University of Augsburg</Link>.
-				<br />
-				I do photo, video, music and speak <Link href="https://github.com/osumatrix">computer</Link>
-				fluently.
-				<br />
 				It is <b>{time}</b> for me in Germany.
+				{age} years. CS at
+				<Link href="https://uni-augsburg.de/">University of Augsburg</Link>. I do photo, video,
+				music and speak <Link href="https://github.com/osumatrix">computer</Link>
+				fluently.
 			</p>
 			<ul>
 				<Social faIcon={faEnvelope} link="mailto:mail@osumatrix.me" />
@@ -74,7 +104,7 @@
 	#card {
 		animation: float 2.9s ease-in-out infinite;
 		animation-delay: 3s;
-		transition: all 0.8s;
+		transition: all 0.6s;
 	}
 
 	#rotating-image {
@@ -84,7 +114,7 @@
 		cursor: pointer;
 		width: 400px;
 		border-radius: 20px;
-		transition: all 0.8s;
+		transition: all 0.6s;
 
 		&:hover {
 			filter: brightness(1.3);
@@ -112,19 +142,15 @@
 
 	#rotating-card {
 		transform: rotate(-4deg) skewX(5deg) skewY(-5deg);
-		transition: all 0.8s;
+		transition: all 0.6s;
 	}
 
 	#rotating-image {
 		transform: rotate(4deg);
-		transition: all 0.8s;
-	}
-
-	#card {
-		opacity: 0.4;
+		transition: all 0.6s;
 	}
 	main {
-		transition: all 0.8s;
+		transition: all 0.6s;
 		display: flex;
 		justify-content: right;
 		width: 400px;
@@ -132,6 +158,7 @@
 		&:hover {
 			margin-right: 350px;
 			#card {
+				filter: none;
 				opacity: 1;
 				margin-right: -330px;
 			}
@@ -140,7 +167,8 @@
 			}
 
 			img {
-				margin-left: -400px;
+				filter: blur(5px) saturate(10) brightness(0.6);
+				margin-left: -450px;
 			}
 			#rotating-image {
 				transform: rotate(-6deg) translateY(-50px) scale(0.9);
@@ -164,7 +192,11 @@
 		flex-direction: row;
 		border-radius: 15px;
 		padding: 2rem;
-		background: #131313;
+		backdrop-filter: blur(32px);
+		filter: blur(5px) saturate(10) grayscale(1);
+		opacity: 0.4;
+
+		background: #1313138f;
 		min-width: 300px;
 		max-width: 300px;
 		flex-direction: column;
@@ -180,9 +212,11 @@
 			position: relative;
 			transform: none !important;
 			width: 100%;
+			filter: none !important;
 		}
 
 		#card {
+			filter: none !important;
 			opacity: 1;
 			animation: none;
 			min-width: none;

@@ -5,9 +5,7 @@ uniform sampler2D u_noise;
 uniform sampler2D u_buffer;
 uniform bool u_renderpass;
 
-const float blurMultiplier = 0.95;
 const float circleSize = .25;
-const float blurStrength = .98;
 const float threshold = .5;
 const float scale = 4.;
 
@@ -30,24 +28,6 @@ vec3 hash33(vec3 p) {
 	return fract(vec3(2097152, 262144, 32768)*n);
 }
 
-vec3 blur(sampler2D sp, vec2 uv, vec2 scale) {
-	vec3 col = vec3(0.0);
-	float accum = 0.0;
-	float weight;
-	vec2 offset;
-
-	for (int x = -samples / 2; x < samples / 2; ++x) {
-		for (int y = -samples / 2; y < samples / 2; ++y) {
-			offset = vec2(x, y);
-			weight = gaussian(offset);
-			col += texture2D(sp, uv + scale * offset).rgb * weight;
-			accum += weight;
-		}
-	}
-
-	return col / accum;
-}
-
 void main() {
 	vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / u_resolution.y;
 	uv *= scale;
@@ -65,7 +45,8 @@ void main() {
 	vec4 tex;
 
 	if (u_renderpass) {
-		tex = vec4(blur(u_buffer, sample, ps * blurStrength) * blurMultiplier, 1.);
+		tex = texture2D(u_buffer, sample) * 0.8;
+
 		float df = length(mouse - uv);
 		fragcolour = vec3(smoothstep(circleSize, 0., df));
 	} else {
@@ -76,8 +57,14 @@ void main() {
 			smoothstep(-0.05, threshold - fwidth(tex.z) - .2, tex.z),
 			1.0
 		);
-		vec3 n = hash33(vec3(uv, u_time * .1));
-		fragcolour = vec3(smoothstep(circleSize, 0., length(uv)));
+		vec3 n = hash33(vec3(uv,  u_time * .1));
+		vec3 circleColor = vec3(
+			0.5 + 0.5*sin(u_time),
+			0.5 + 0.5*sin(u_time + 2.0),
+			0.5 + 0.5*sin(u_time + 4.0)
+		);
+		fragcolour = circleColor * smoothstep(circleSize, 0., length(mouse - uv));
+
 		tex.rgb += n * .2 - .1;
 		tex.rgb = vec3(dot(tex.rgb, vec3(0.299, 0.587, 0.114)));
 	}
